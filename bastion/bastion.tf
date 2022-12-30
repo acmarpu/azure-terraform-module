@@ -1,3 +1,7 @@
+###########################################################################
+# Azure Bastion Service creation
+###########################################################################
+
 data "azurerm_resource_group" "resource_group" {
   name = "${var.resource_group}-rg"
   
@@ -11,8 +15,9 @@ data "azurerm_virtual_network" "virtual_network" {
     resource_group_name = data.azurerm_resource_group.resource_group.name
   
 }
-
+###############################################################################
 ##Azure Bastion can only be created in subnet with name 'AzureBastionSubnet
+###############################################################################
 resource "azurerm_subnet" "bastion_subnet" {
   name                 = var.bastion_subnet_address_name
   resource_group_name  = data.azurerm_resource_group.bastion_resource_group.name
