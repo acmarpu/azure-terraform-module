@@ -1,10 +1,21 @@
+#################################################################
+# Virtual Machine creation
+################################################################
+
+/*
+Note :- Data source in terraform are used to get the information about resource extranl to Terraform and 
+use them to set up your terraform resource 
+*/
 data "azurerm_resource_group" "resource_group" {
   name = "${var.resource_group}-rg"
   
 }
 
-data "azurerm_client_config" "current" {}
+/*
+Use this data source to access the configuration of the AzureRM provider
+*/
 
+data "azurerm_client_config" "current" {}
 
 data "azurerm_virtual_network" "virtual_network" {
     name  = var.virtual_network_name
@@ -19,6 +30,9 @@ data "azurerm_subnet" "jump_server_subnet" {
   
 }
 
+#########################################
+# Public IP creation
+#########################################
 resource "azurerm_public_ip" "jump_server_public_ip" {
   name    = "${var.jump-server-name}-public_ip"
   location            = data.azurerm_resource_group.resource_group.location
@@ -28,6 +42,9 @@ resource "azurerm_public_ip" "jump_server_public_ip" {
   sku_tier = var.jump_server_public_ip_sku_tier
 }
 
+#########################################
+# Network Security Grop and rules creation
+#########################################
 resource "azurerm_network_security_group" "jump_server_nsg" {
   name                = "${var.jump-server-name}-nsg"
   location            = data.azurerm_resource_group.resource_group.location
@@ -46,6 +63,9 @@ resource "azurerm_network_security_group" "jump_server_nsg" {
   }
 }
 
+#########################################
+# NIC creation
+#########################################
 resource "azurerm_network_interface" "jump_server_nic" {
   name                = "${var.jump-server-name}-nic"
   location            = data.azurerm_resource_group.resource_group.location
@@ -60,6 +80,9 @@ resource "azurerm_network_interface" "jump_server_nic" {
   }
 }
 
+###########################################################
+# Connect the security group to the network interface
+###########################################################
 resource "azurerm_network_interface_security_group_association" "jump_server_nic_nsg_association" {
   network_interface_id      = azurerm_network_interface.jump_server_nic.id
   network_security_group_id = azurerm_network_security_group.jump_server_nsg.id
