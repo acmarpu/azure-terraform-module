@@ -1,5 +1,5 @@
 #########################################################################
-## Azure Bastion Service Variables defined
+## Azure Bastion Service Variables declaration
 #########################################################################
 variable "bastion_name" {
 }

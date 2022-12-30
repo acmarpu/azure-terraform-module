@@ -1,6 +1,6 @@
 ###########################################################################
 # Azure Bastion Service creation
-# /* is comment to line
+# /* and */ are start and end delimiters for a comment that might span over multiple lines
 ###########################################################################
 
 /*

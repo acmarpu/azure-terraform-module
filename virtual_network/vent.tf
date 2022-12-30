@@ -1,10 +1,21 @@
+
+################################################################
+# Virtual Network Creation
+#################################################################
+
+
+################################################################
+# Mentioned resource group fetched from @ Resource Group folder
+#################################################################
 data "azurerm_resource_group" "resource_group" {
   name = "${var.resource_group}-rg"
   
 }
 
+/*
+Use this data source to access the configuration of the AzureRM provider
+*/
 data "azurerm_client_config" "current" {}
-
 
 
 resource "azurerm_virtual_network" "virtual_network" {
@@ -13,12 +24,11 @@ resource "azurerm_virtual_network" "virtual_network" {
   resource_group_name = data.azurerm_resource_group.resource_group.name
   address_space = var.network_address_space
  
-  tags = {
-    Environment = var.environment
-  }
- 
 }
 
+##################################################################################
+# Creating subnets for Vent
+##################################################################################
 resource "azurerm_subnet" "app_subnet" {
   name = var.app_subnet_address_name
   resource_group_name  = data.azurerm_resource_group.resource_group.name
