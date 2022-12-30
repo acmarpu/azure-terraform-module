@@ -2,10 +2,13 @@ module "resource_group" {
   source = "./resource_group"
   resource_group= var.resource_group
   resource_location = var.resource_location
+  
+  
+             
 
 }
 
-
+/*
 module "vnet" {
   source                      = "./virtual_network"
   virtual_network_name      = var.virtual_network_name
@@ -24,6 +27,7 @@ module "vnet" {
     module.resource_group
   ]
 }
+*/
 
 
 /*
@@ -50,7 +54,7 @@ module "bation_module" {
 }
 */
 
-
+/*
 module "virtual-machine" {
     source = "./virtual-machine"    
     jump-server-name  = var.jump-server-name
@@ -77,9 +81,10 @@ module "virtual-machine" {
     mangment_subnet_address_name = var.mangment_subnet_address_name
     
 
-
     depends_on = [
     module.resource_group,
     module.vnet
   ]
 }
+
+*/

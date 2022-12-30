@@ -1,11 +1,20 @@
 ###########################################################################
 # Azure Bastion Service creation
+# /* is comment to line
 ###########################################################################
 
+/*
+Note :- Data source in terraform are used to get the information about resource extranl to Terraform and 
+use them to set up your terraform resource 
+*/
 data "azurerm_resource_group" "resource_group" {
   name = "${var.resource_group}-rg"
   
 }
+
+/*
+Use this data source to access the configuration of the AzureRM provider
+*/
 
 data "azurerm_client_config" "current" {}
 

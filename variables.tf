@@ -1,10 +1,26 @@
-## Resource Group Details
+variable "project" {
+  type = string
+    description = "project name should mention here"
+    default = "deployment"
+  
+}
+variable "environment" {
+  type        = string
+  description = "environment name should mention here"
+  default = "deployment"
+}
+
+variable "created" {
+  type        = string
+  description = "created name should mention here"
+  default = "deployment"
+  
+}
 variable "resource_group" {
     type = string
     description = "this for creating resource group"
     default = "deployment"
-    
-  
+     
 }
 
 variable "resource_location" {
@@ -66,11 +82,7 @@ variable "database_subnet_address_name" {
   default = "database_subnet"
 }
  
-variable "environment" {
-  type        = string
-  description = "Environment"
-  default = "prod"
-}
+
 
 
 ## bastion host
@@ -232,4 +244,8 @@ variable "jump_server_public_ip" {
   default = ""
   
 }
+
+
+
+
 
