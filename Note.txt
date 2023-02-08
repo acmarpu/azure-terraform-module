@@ -8,7 +8,3 @@ Data source in terraform are used to get the information about resource extranl 
 use them to set up your terraform resource 
 
 
-data "azurerm_client_config" "current" {}
-Use this data source to access the configuration of the AzureRM provider
-
-
