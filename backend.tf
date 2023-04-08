@@ -1,7 +1,7 @@
 ##########################################################
 # Configure azurerm backend
 ###########################################################
-/*
+
 terraform {   
     backend "azurerm" {
         resource_group_name   = 
@@ -10,4 +10,6 @@ terraform {
         key                   = 
     }
 }
-*/
+
+
+## new line added
