@@ -1,6 +1,3 @@
-  ### no modi
-### no modi
-
 module "resource_group" {
   source = "./resource_group"
   resource_group= var.resource_group
