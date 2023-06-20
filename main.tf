@@ -2,13 +2,10 @@ module "resource_group" {
   source = "./resource_group"
   resource_group= var.resource_group
   resource_location = var.resource_location
-  
-
-             
+            
 
 }
 
-/*
 module "vnet" {
   source                      = "./virtual_network"
   virtual_network_name      = var.virtual_network_name
@@ -27,10 +24,10 @@ module "vnet" {
     module.resource_group
   ]
 }
-*/
 
 
-/*
+
+
 module "bation_module" {
   bastion_name        = var.bastion_name
   source                     = "./bastion"
@@ -52,9 +49,7 @@ module "bation_module" {
   ]
 
 }
-*/
 
-/*
 module "virtual-machine" {
     source = "./virtual-machine"    
     jump-server-name  = var.jump-server-name
